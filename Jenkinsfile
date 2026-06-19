@@ -2,27 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Install Dependencies') {
             steps {
-                git 'https://github.com/user/repository.git'
+                sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
+                echo 'Build completed'
             }
         }
     }
